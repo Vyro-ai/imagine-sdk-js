@@ -1,0 +1,61 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": ["./tsconfig.json"]
+    },
+    "extends": [
+      "airbnb-base",
+      "airbnb-typescript/base",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:eslint-comments/recommended",
+      "plugin:promise/recommended",
+      "prettier"
+    ],
+    "plugins": ["import", "@typescript-eslint", "prefer-arrow-functions"],
+    "rules": {
+      "no-case-declarations": "off",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "newlines-between": "always",
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }
+      ],
+      "comma-dangle": 0,
+      "no-underscore-dangle": 0,
+      "no-param-reassign": 0,
+      "no-return-assign": 0,
+      "camelcase": 0,
+      "import/extensions": 0,
+      "@typescript-eslint/no-redeclare": 0,
+      "prefer-arrow-functions/prefer-arrow-functions": [
+        "warn",
+        {
+          "classPropertiesAllowed": false,
+          "disallowPrototype": false,
+          "singleReturnOnly": false
+        }
+      ]
+    },
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
+  }
+  

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": false,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*", "src/aspect-ratio/index.ts", "src/styles/index.ts"],
+  "exclude": ["node_modules", "test", "lib", "**/*spec.ts"]
+}
