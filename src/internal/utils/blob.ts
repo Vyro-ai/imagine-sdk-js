@@ -1,8 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
 
-import fetch from "isomorphic-unfetch";
-
 import { ErrDynamic, ErrNotFound } from "src/internal/errors";
 
 import { ImageParam } from "../types/image";

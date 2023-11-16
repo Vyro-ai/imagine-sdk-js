@@ -1,6 +1,6 @@
 {
   "name": "imaginesdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
@@ -10,7 +10,11 @@
     "build": "eslint src && rm -rf dist && microbundle --tsconfig tsconfig.json --no-sourcemap",
     "lint": "eslint src"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vyro-ai/imagine-sdk-js.git"
+  },
+  "keywords": ["imagine", "imaginesdk", "nodejs", "typescript", "js", "ai", "art"],
   "author": "Muhammad Shariq",
   "license": "Apache-2.0",
   "devDependencies": {
@@ -27,8 +31,7 @@
     "microbundle": "^0.15.1"
   },
   "dependencies": {
-    "http-errors": "^2.0.0",
-    "isomorphic-unfetch": "^4.0.2"
+    "http-errors": "^2.0.0"
   },
   "exports": {
     "require": "./dist/index.js",

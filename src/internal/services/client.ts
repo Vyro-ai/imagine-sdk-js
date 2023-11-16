@@ -1,5 +1,3 @@
-import fetch from "isomorphic-unfetch";
-
 /**
  * Represents a client for making HTTP requests and fetching data.
  *
