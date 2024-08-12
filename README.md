@@ -26,7 +26,7 @@ npm install imaginesdk
 The SDK needs to be configured with an API key which is available [here](https://platform.imagine.art/). It will be passed to the Imagine client as an argument while instantiating it.
 
 ```typescript
-import { client, GenerationStyle, Status } from "imaginesdk";
+import { client, T2IGenerationStyle, Status } from "imaginesdk";
 
 // Initialize the client with your API key
 const imagine = client("<YOUR_API_KEY>");
@@ -36,7 +36,7 @@ const main = async () => {
   const response = await imagine.generations(
     `A vibrant and whimsical fantasy forest with magical creatures, glowing plants, and a flowing river, in a digital painting style inspired by video games like Ori and the Blind Forest.`,
     {
-      style: GenerationStyle.IMAGINE_V5,
+      style: T2IGenerationStyle.IMAGINE_V5,
     }
   );
 
@@ -59,13 +59,10 @@ main();
 
 ### Imagine Client
 
-The Imagine class acts as a facade, providing an interface to interact with all of our endpoints. It currently provides the following features:
+The Imagine class acts as a facade, providing methods that act as interfaces to interact with all of our endpoints. It currently provides the following features:
 
-- **Text-To-Image**: `generations() -> Response[Image]`
-- **Image-Remix**: `remix() -> Response[Image]`
-- **Upscale**: `upscale() -> Response[Image]`
-- **Variations**: `variations() -> Response[Image]`
-- **In-Painting**: `inpaint() -> Response[Image]`
+- **Image-Generation**: `imageGeneration() -> Response[Image]`
+- **Image-Editing**: `imageEditimg() -> Response[Image]`
 
 For the full list of parameters and other details, check out the [documentation](https://vyroai.notion.site/API-Documentation-e643af82991f4265841cff2951eac803).
 

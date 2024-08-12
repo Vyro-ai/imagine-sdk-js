@@ -1,13 +1,12 @@
+import { Status } from "src/internal/enums/statuses";
+import { RemixStyle } from "src/internal/enums/styles";
+import { Image, toImage } from "src/internal/models/image";
+import { Result, success, error } from "src/internal/models/result";
+import { RequestClient } from "src/internal/services/client";
+import { ImageParam } from "src/internal/types/image";
+import { RemixConfig } from "src/internal/types/remix";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-
-import { Status } from "../enums/statuses";
-import { RemixStyle } from "../enums/styles";
-import { Image, toImage } from "../models/image";
-import { Result, success, error } from "../models/result";
-import { RequestClient } from "../services/client";
-import { ImageParam } from "../types/image";
-import { RemixConfig } from "../types/remix";
 
 const remix = async (
   client: RequestClient,
@@ -41,7 +40,7 @@ const remix = async (
   return success(r);
 };
 
-export const remixHandler =
+const remixHandler =
   (client: RequestClient) =>
   async (prompt: string, image: ImageParam, config?: RemixConfig) =>
     (await remix(client, prompt, image, config)) as Result<Image>;

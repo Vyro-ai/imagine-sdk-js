@@ -1,11 +1,10 @@
+import { Status } from "src/internal/enums/statuses";
+import { Image, toImage } from "src/internal/models/image";
+import { Result, success, error } from "src/internal/models/result";
+import { RequestClient } from "src/internal/services/client";
+import { ImageParam } from "src/internal/types/image";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-
-import { Status } from "../enums/statuses";
-import { Image, toImage } from "../models/image";
-import { Result, success, error } from "../models/result";
-import { RequestClient } from "../services/client";
-import { ImageParam } from "../types/image";
 
 const upscale = async (
   client: RequestClient,
