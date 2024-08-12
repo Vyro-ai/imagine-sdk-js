@@ -1,7 +1,7 @@
 /**
- * @enum {string} GenerationAspectRatio - The aspect ratios for image generations.
+ * @enum {string} T2IGenerationAspectRatio - The aspect ratios for image generations.
  */
-export enum GenerationAspectRatio {
+export enum T2IGenerationAspectRatio {
   ONE_BY_ONE = "1:1",
   FOUR_BY_THREE = "4:3",
   THREE_BY_FOUR = "3:4",
@@ -15,4 +15,4 @@ export enum GenerationAspectRatio {
   THREE_BY_ONE = "3:1",
 }
 
-export default GenerationAspectRatio;
+export default T2IGenerationAspectRatio;

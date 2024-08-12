@@ -26,7 +26,7 @@ npm install imaginesdk
 The SDK needs to be configured with an API key which is available [here](https://platform.imagine.art/). It will be passed to the Imagine client as an argument while instantiating it.
 
 ```typescript
-import { client, GenerationStyle, Status } from "imaginesdk";
+import { client, T2IGenerationStyle, Status } from "imaginesdk";
 
 // Initialize the client with your API key
 const imagine = client("<YOUR_API_KEY>");
@@ -36,7 +36,7 @@ const main = async () => {
   const response = await imagine.generations(
     `A vibrant and whimsical fantasy forest with magical creatures, glowing plants, and a flowing river, in a digital painting style inspired by video games like Ori and the Blind Forest.`,
     {
-      style: GenerationStyle.IMAGINE_V5,
+      style: T2IGenerationStyle.IMAGINE_V5,
     }
   );
 
