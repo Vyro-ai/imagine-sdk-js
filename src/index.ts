@@ -8,10 +8,6 @@ import {
   ImageGeneration,
   imageGenerationHandler,
 } from "./internal/handlers/imageGeneration";
-import {
-  VideoGeneration,
-  VideoGenerationHandler,
-} from "./internal/handlers/videoGeneration";
 import { RequestClient, instance } from "./internal/services/client";
 
 const BASE_URL = "https://api.vyro.ai/";
@@ -35,13 +31,6 @@ interface Imagine {
    * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
   imageEditimg: ImageEditing;
-
-  /**
-   * Returns methods that return promises for image editing.
-   *
-   * @param {RequestClient} client - Client for making HTTP requests and fetching data
-   */
-  videoGeneration: VideoGeneration;
 }
 
 /**
@@ -61,7 +50,6 @@ export const client = (
   return {
     imageGeneration: imageGenerationHandler(c),
     imageEditimg: imageEditingHandler(c),
-    videoGeneration: VideoGenerationHandler(c),
   };
 };
 
