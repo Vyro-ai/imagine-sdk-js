@@ -59,13 +59,10 @@ main();
 
 ### Imagine Client
 
-The Imagine class acts as a facade, providing an interface to interact with all of our endpoints. It currently provides the following features:
+The Imagine class acts as a facade, providing methods that act as interfaces to interact with all of our endpoints. It currently provides the following features:
 
-- **Text-To-Image**: `generations() -> Response[Image]`
-- **Image-Remix**: `remix() -> Response[Image]`
-- **Upscale**: `upscale() -> Response[Image]`
-- **Variations**: `variations() -> Response[Image]`
-- **In-Painting**: `inpaint() -> Response[Image]`
+- **Image-Generation**: `imageGeneration() -> Response[Image]`
+- **Image-Editing**: `imageEditimg() -> Response[Image]`
 
 For the full list of parameters and other details, check out the [documentation](https://vyroai.notion.site/API-Documentation-e643af82991f4265841cff2951eac803).
 
