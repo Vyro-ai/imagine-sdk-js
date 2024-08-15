@@ -1,6 +1,10 @@
 import { RemixControl } from "src/internal/enums/controls";
 import { GenerationsAspectRatio } from "src/internal/enums/ratios";
-import { GenerationsStyle, RemixStyle } from "src/internal/enums/styles";
+import {
+  GenerationsStyle,
+  RemixStyle,
+  VariationStyle,
+} from "src/internal/enums/styles";
 
 /**
  * Configuration options for image editing through AI Clothing.
@@ -51,6 +55,25 @@ export declare type RemixConfig = {
   steps?: number;
   strength?: number;
   control?: RemixControl;
+  cfg?: number;
+  negativePrompt?: string;
+};
+
+/**
+ * Configuration options for applying variations to an image.
+ *
+ * @property {VariationStyle} [style] - The style for applying variations (model: VariationStyle).
+ * @property {number} [seed] - The random seed for reproducible variation application.
+ * @property {number} [steps] - The number of steps for applying variations to the image.
+ * @property {number} [strength] - The strength of the variation application process.
+ * @property {number} [cfg] - The CFG (Controlled Feature Generation) parameter for applying variations.
+ * @property {string} [negativePrompt] - The negative prompt for contrasting images.
+ */
+export declare type VariationConfig = {
+  style?: VariationStyle;
+  seed?: number;
+  steps?: number;
+  strength?: number;
   cfg?: number;
   negativePrompt?: string;
 };
