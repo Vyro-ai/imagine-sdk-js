@@ -2,6 +2,7 @@ import { RemixControl } from "src/internal/enums/controls";
 import { GenerationsAspectRatio } from "src/internal/enums/ratios";
 import {
   GenerationsStyle,
+  InpaintStyle,
   RemixStyle,
   VariationStyle,
 } from "src/internal/enums/styles";
@@ -14,6 +15,7 @@ export const Styles = {
   Generations: GenerationsStyle,
   Remix: RemixStyle,
   Variation: VariationStyle,
+  Inpaint: InpaintStyle,
 };
 
 export const Controls = {

@@ -69,3 +69,10 @@ export enum VariationStyle {
   THREE_D_RENDERING = 118,
   ABSOLUTE_REALITY_V1_6 = 119,
 }
+
+/**
+ * @enum {number} InpaintStyle - The style ids for image inpaint.
+ */
+export enum InpaintStyle {
+  REALISM = 1,
+}

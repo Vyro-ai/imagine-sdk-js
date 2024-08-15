@@ -5,7 +5,7 @@ import { RequestClient } from "src/internal/services/client";
 import { FormDataBuilder } from "src/internal/utils/form";
 import { GenerationsConfig, Styles } from "src/models";
 
-const generate = async (
+const generations = async (
   client: RequestClient,
   prompt: string,
   config: GenerationsConfig = {}
@@ -38,6 +38,6 @@ const generate = async (
 export const generationsHandler =
   (client: RequestClient) =>
   async (prompt: string, config?: GenerationsConfig) =>
-    (await generate(client, prompt, config)) as Result<Image>;
+    (await generations(client, prompt, config)) as Result<Image>;
 
 export default generationsHandler;
