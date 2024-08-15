@@ -1,7 +1,8 @@
 /**
- * @enum {number} Style - The style ids for image generations.
+ * @enum {number} Generation - The style ids for image generations.
  */
-export enum T2IGenerationStyle {
+
+export enum GenerationsStyle {
   ANIME = 21,
   PORTRAIT = 26,
   IMAGINE_V1 = 27,
@@ -30,7 +31,7 @@ export enum T2IGenerationStyle {
 }
 
 /**
- * @enum {number} RemixStyle - The style ids for image remix.
+ * @enum {number} Remix - The style ids for image remix.
  */
 export enum RemixStyle {
   ANIME = 21,

@@ -1,21 +1,17 @@
 /**
- * @enum {number} AIFilterSID1 - The AI filters against style_id = 1.
+ * @enum {number} Filters - The filter ids for filter editing.
  */
-export enum AIFilterSID1 {
-  VANGOUH = 1,
-  POPART = 2,
-  CUTECHIBI = 3,
-  CRACKEDKINTSUGI = 4,
-  NEONME = 5,
-  SIMPLECARTOON = 6,
-  WESTERNCARTOON = 7,
-  EIGHTIESANIME = 8,
-  NEWSPAPERRETRO = 9,
+export enum Filters {
+  PIXAR_DISNEY = 0,
+  VAN_GOUH = 1,
+  POP_ART = 2,
+  CURE_CHIBI = 3,
+  CRACKED_KINTSUGI = 4,
+  NEON_ME = 5,
+  SIMPLE_CARTOON = 6,
+  WESTERN_ANIME = 7,
+  "80s_ANIME" = 8,
+  NEWSPAPER_RETRO = 9,
 }
 
-/**
- * @enum {number} AIFilterSID2 - The AI filters against style_id = 2.
- */
-export enum AIFilterSID2 {
-  "PIXAR/DISNEY" = 1,
-}
+export default Filters;

@@ -1,14 +1,15 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable import/prefer-default-export */
 import {
-  ImageEditing,
-  imageEditingHandler,
-} from "./internal/handlers/imageEditing";
+  Background,
+  backgroundHandler,
+} from "src/internal/handlers/background";
+import { Edits, editsHandler } from "src/internal/handlers/edits";
+import { Enhance, enhanceHandler } from "src/internal/handlers/enhance";
+import { Face, faceHandler } from "src/internal/handlers/face";
 import {
-  ImageGeneration,
-  imageGenerationHandler,
-} from "./internal/handlers/imageGeneration";
-import { RequestClient, instance } from "./internal/services/client";
+  Generations,
+  generationsHandler,
+} from "src/internal/handlers/generations";
+import { instance, RequestClient } from "src/internal/services/client";
 
 const BASE_URL = "https://api.vyro.ai/";
 
@@ -19,18 +20,39 @@ const BASE_URL = "https://api.vyro.ai/";
  */
 interface Imagine {
   /**
-   * Returns methods that return promises for image generations.
+   * Returns methods that generate images.
    *
    * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  imageGeneration: ImageGeneration;
+  generations: Generations;
 
   /**
-   * Returns methods that return promises for image editing.
+   * Returns methods to interact with the background of an image.
    *
    * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  imageEditimg: ImageEditing;
+  background: Background;
+
+  /**
+   * Returns methods to enhance an image.
+   *
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
+   */
+  enhance: Enhance;
+
+  /**
+   * Returns methods to edit images.
+   *
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
+   */
+  edits: Edits;
+
+  /**
+   * Returns methods to edit images but preserve the face.
+   *
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
+   */
+  face: Face;
 }
 
 /**
@@ -48,18 +70,17 @@ export const client = (
   const c = config?.client ?? instance(BASE_URL, token);
 
   return {
-    imageGeneration: imageGenerationHandler(c),
-    imageEditimg: imageEditingHandler(c),
+    generations: generationsHandler(c),
+    background: backgroundHandler(c),
+    enhance: enhanceHandler(c),
+    edits: editsHandler(c),
+    face: faceHandler(c),
   };
 };
 
 export default client;
-export * from "./internal/enums/ratios";
-export * from "./internal/enums/statuses";
-export * from "./internal/enums/styles";
-export * from "./internal/enums/controls";
-export * from "./internal/types/textToImage";
-export * from "./internal/types/remix";
+export * from "./internal/enums";
+export * from "./internal/types/config";
 export { Err } from "./internal/models/error";
 export { RequestClient } from "./internal/services/client";
 export { ImageParam } from "./internal/types/image";
