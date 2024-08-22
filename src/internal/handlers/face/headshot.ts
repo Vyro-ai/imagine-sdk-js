@@ -1,7 +1,7 @@
-import { Status } from "src/internal/enums/statuses";
+import { Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { HeadshotConfig, ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
 import { RequestClient } from "src/services";
@@ -9,11 +9,14 @@ import { RequestClient } from "src/services";
 const headshot = async (
   client: RequestClient,
   prompt: string,
-  image: ImageParam
+  image: ImageParam,
+  config: HeadshotConfig = {}
 ): Promise<Result<Image>> => {
   const data = new FormDataBuilder()
     .string("prompt", prompt)
     .blob("image", await toBlob(image))
+    .string("negative_prompt", config.negativePrompt)
+    .integer("seed", config.seed)
     .build();
 
   const res: {
@@ -31,7 +34,8 @@ const headshot = async (
 };
 
 export const headshotHandler =
-  (client: RequestClient) => async (prompt: string, image: ImageParam) =>
-    (await headshot(client, prompt, image)) as Result<Image>;
+  (client: RequestClient) =>
+  async (prompt: string, image: ImageParam, config?: HeadshotConfig) =>
+    (await headshot(client, prompt, image, config)) as Result<Image>;
 
 export default headshotHandler;

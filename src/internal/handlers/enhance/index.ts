@@ -1,7 +1,7 @@
 import { upscaleHandler } from "src/internal/handlers/enhance/upscale";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam } from "src/internal/types";
 import { RequestClient } from "src/services";
 
 export interface Enhance {

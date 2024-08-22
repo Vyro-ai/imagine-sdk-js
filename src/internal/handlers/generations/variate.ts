@@ -1,9 +1,9 @@
+import { Status, VariationStyle } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { error, Result, success } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam, VariationConfig } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-import { Status, Styles, VariationConfig } from "src/models";
 import { RequestClient } from "src/services";
 
 const variations = async (
@@ -15,7 +15,7 @@ const variations = async (
   const data = new FormDataBuilder()
     .string("prompt", prompt)
     .blob("image", await toBlob(image))
-    .integer("style_id", config.style ?? Styles.Variation.IMAGINE_V1)
+    .integer("style_id", config.style ?? VariationStyle.IMAGINE_V1)
     .integer("seed", config.seed)
     .integer("steps", config.steps)
     .integer("strength", config.strength)

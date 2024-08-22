@@ -1,7 +1,7 @@
 import { headshotHandler } from "src/internal/handlers/face/headshot";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { HeadshotConfig, ImageParam } from "src/internal/types";
 import { RequestClient } from "src/services";
 
 export interface Face {
@@ -10,9 +10,14 @@ export interface Face {
    *
    * @param {ImageParam} image - The image that has to be changed.
    * @param {string} prompt - Guidance prompt for image editing.
+   * @param {HeadshotConfig} [config] - Optional configuration for headshot. (model: HeadshotConfig)
    * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image upscaling.
    */
-  headshot: (image: ImageParam, prompt: string) => Promise<Result<Image>>;
+  headshot: (
+    image: ImageParam,
+    prompt: string,
+    config?: HeadshotConfig
+  ) => Promise<Result<Image>>;
 }
 
 /**

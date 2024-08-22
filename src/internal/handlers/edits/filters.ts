@@ -1,15 +1,14 @@
-import { Status } from "src/internal/enums/statuses";
+import { AIFilters, Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
 import { RequestClient } from "src/internal/services/client";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-import { Filters } from "src/models";
 
-const getIds = (filterId: Filters) => {
-  const finalFilterId = filterId === Filters.PIXAR_DISNEY ? 1 : filterId;
-  const finalStyleId = filterId === Filters.PIXAR_DISNEY ? 2 : 1;
+const getIds = (filterId: AIFilters) => {
+  const finalFilterId = filterId === AIFilters.PIXAR_DISNEY ? 1 : filterId;
+  const finalStyleId = filterId === AIFilters.PIXAR_DISNEY ? 2 : 1;
   return {
     finalFilterId,
     finalStyleId,
@@ -19,7 +18,7 @@ const getIds = (filterId: Filters) => {
 const filters = async (
   client: RequestClient,
   image: ImageParam,
-  filterId: Filters
+  filterId: AIFilters
 ): Promise<Result<Image>> => {
   const { finalFilterId, finalStyleId } = getIds(filterId);
 
@@ -44,7 +43,7 @@ const filters = async (
 };
 
 export const filtersHandler =
-  (client: RequestClient) => async (image: ImageParam, filterId: Filters) =>
+  (client: RequestClient) => async (image: ImageParam, filterId: AIFilters) =>
     (await filters(client, image, filterId)) as Result<Image>;
 
 export default filtersHandler;

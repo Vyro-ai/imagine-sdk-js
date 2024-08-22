@@ -1,7 +1,7 @@
 import { removerHandler } from "src/internal/handlers/background/remover";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam } from "src/internal/types";
 import { RequestClient } from "src/services";
 
 export interface Background {

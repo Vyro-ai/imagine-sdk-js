@@ -1,10 +1,10 @@
+import { AIFilters } from "src/internal/enums";
 import { filtersHandler } from "src/internal/handlers/edits/filters";
 import { inpaintHandler } from "src/internal/handlers/edits/inpaint";
 import { Remix, remixHandler } from "src/internal/handlers/edits/remix";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
-import { Filters, InpaintConfig } from "src/models";
+import { ImageParam, InpaintConfig } from "src/internal/types";
 import { RequestClient } from "src/services";
 
 export interface Edits {
@@ -18,10 +18,10 @@ export interface Edits {
   /**
    * Applies AI filters on an image.
    *
-   * @param {Filters} filterId - Relevant filter id {model : Filters}.
+   * @param {AIFilters} filterId - Relevant filter id {model : AIFilters}.
    * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the AI Filter's application on the provided image.
    */
-  filters: (image: ImageParam, filterId: Filters) => Promise<Result<Image>>;
+  filters: (image: ImageParam, filterId: AIFilters) => Promise<Result<Image>>;
 
   /**
    * Inpaint an image based on a prompt and mask.

@@ -1,11 +1,10 @@
-import { Status } from "src/internal/enums/statuses";
+import { RemixStyle, Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
 import { RequestClient } from "src/internal/services/client";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam, RemixConfig } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-import { RemixConfig, Styles } from "src/models";
 
 const remix = async (
   client: RequestClient,
@@ -16,7 +15,7 @@ const remix = async (
   const data = new FormDataBuilder()
     .string("prompt", prompt)
     .blob("image", await toBlob(image))
-    .integer("style_id", config.style, Styles.Remix.IMAGINE_V1)
+    .integer("style_id", config.style, RemixStyle.IMAGINE_V1)
     .integer("seed", config.seed)
     .integer("steps", config.steps)
     .integer("strength", config.strength)

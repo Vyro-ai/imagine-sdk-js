@@ -1,8 +1,8 @@
-import { Status } from "src/internal/enums/statuses";
+import { Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
 import { RequestClient } from "src/internal/services/client";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
 

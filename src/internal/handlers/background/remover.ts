@@ -1,9 +1,9 @@
+import { Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { error, Result, success } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-import { Status } from "src/models";
 import { RequestClient } from "src/services";
 
 const remover = async (

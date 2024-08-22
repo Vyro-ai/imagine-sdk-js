@@ -1,9 +1,9 @@
-import { Status } from "src/internal/enums/statuses";
+import { Status, GenerationsStyle } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
 import { RequestClient } from "src/internal/services/client";
+import { GenerationsConfig } from "src/internal/types";
 import { FormDataBuilder } from "src/internal/utils/form";
-import { GenerationsConfig, Styles } from "src/models";
 
 const generations = async (
   client: RequestClient,
@@ -13,7 +13,7 @@ const generations = async (
   const data = new FormDataBuilder()
     .string("prompt", prompt)
     .string("aspect_ratio", config.aspectRatio)
-    .integer("style_id", config.style, Styles.Generations.IMAGINE_V1)
+    .integer("style_id", config.style, GenerationsStyle.IMAGINE_V1)
     .string("negative_prompt", config.negativePrompt)
     .float("cfg", config.cfg)
     .integer("seed", config.seed)

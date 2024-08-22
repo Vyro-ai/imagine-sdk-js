@@ -3,8 +3,11 @@ import { generationsHandler as genHandler } from "src/internal/handlers/generati
 import { variationHandler } from "src/internal/handlers/generations/variate";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
-import { GenerationsConfig, VariationConfig } from "src/models";
+import {
+  GenerationsConfig,
+  VariationConfig,
+  ImageParam,
+} from "src/internal/types";
 import { RequestClient } from "src/services";
 
 export interface Generations {

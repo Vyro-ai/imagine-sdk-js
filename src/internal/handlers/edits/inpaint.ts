@@ -1,9 +1,9 @@
+import { InpaintStyle, Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { error, Result, success } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
+import { ImageParam, InpaintConfig } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-import { InpaintConfig, Status, Styles } from "src/models";
 import { RequestClient } from "src/services";
 
 const inpaint = async (
@@ -17,7 +17,7 @@ const inpaint = async (
     .string("prompt", prompt)
     .blob("image", await toBlob(image))
     .blob("mask", await toBlob(mask))
-    .integer("style_id", Styles.Inpaint.REALISM)
+    .integer("style_id", InpaintStyle.REALISM)
     .float("cfg", config.cfg)
     .string("neg_prompt", config.negativePrompt)
     .float("inpaint_strength", config.inPaintStrength)

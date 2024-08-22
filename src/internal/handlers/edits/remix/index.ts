@@ -1,8 +1,7 @@
 import { remixHandler as rHandler } from "src/internal/handlers/edits/remix/remix";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { ImageParam } from "src/internal/types/image";
-import { RemixConfig } from "src/models";
+import { RemixConfig, ImageParam } from "src/internal/types";
 import { RequestClient } from "src/services";
 
 export interface Remix {
