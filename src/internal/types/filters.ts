@@ -5,6 +5,6 @@ import { Filters } from "../enums";
  *
  * @property {Filters} [filterId] - The filter id for AI Filters application (model: Filters).
  */
-export declare type AIFiltersConfig = {
+export declare type FiltersConfig = {
   filterId?: Filters;
 };

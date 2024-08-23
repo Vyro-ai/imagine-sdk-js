@@ -2,7 +2,7 @@ import { AIFiltersStyle, Filters, Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
 import { RequestClient } from "src/internal/services/client";
-import { AIFiltersConfig, ImageParam } from "src/internal/types";
+import { FiltersConfig, ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
 
@@ -17,7 +17,7 @@ const ids = (id: Filters) => ({
 const filters = async (
   client: RequestClient,
   image: ImageParam,
-  config: AIFiltersConfig = {}
+  config: FiltersConfig = {}
 ): Promise<Result<Image>> => {
   const { filterId, styleId } = ids(config.filterId);
 
@@ -43,7 +43,7 @@ const filters = async (
 
 export const filtersHandler =
   (client: RequestClient) =>
-  async (image: ImageParam, config?: AIFiltersConfig) =>
+  async (image: ImageParam, config?: FiltersConfig) =>
     (await filters(client, image, config)) as Result<Image>;
 
 export default filtersHandler;
