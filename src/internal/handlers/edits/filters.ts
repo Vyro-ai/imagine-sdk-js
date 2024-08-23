@@ -1,30 +1,29 @@
-import { AIFilters, Status } from "src/internal/enums";
+import { AIFiltersStyle, Filters, Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
 import { RequestClient } from "src/internal/services/client";
-import { ImageParam } from "src/internal/types";
+import { AIFitlersConfig, ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
 
-const getIds = (filterId: AIFilters) => {
-  const finalFilterId = filterId === AIFilters.PIXAR_DISNEY ? 1 : filterId;
-  const finalStyleId = filterId === AIFilters.PIXAR_DISNEY ? 2 : 1;
-  return {
-    finalFilterId,
-    finalStyleId,
-  };
-};
+const ids = (id: Filters) => ({
+  filterId: id === Filters.PIXAR_DISNEY ? Filters.PIXAR_DISNEY : id,
+  styleId:
+    id === Filters.PIXAR_DISNEY
+      ? AIFiltersStyle.STYLE_2
+      : AIFiltersStyle.STYLE_1,
+});
 
 const filters = async (
   client: RequestClient,
   image: ImageParam,
-  filterId: AIFilters
+  config: AIFitlersConfig = {}
 ): Promise<Result<Image>> => {
-  const { finalFilterId, finalStyleId } = getIds(filterId);
+  const { filterId, styleId } = ids(config.filterId);
 
   const data = new FormDataBuilder()
-    .integer("style_id", finalStyleId)
-    .integer("filter_id", finalFilterId)
+    .integer("style_id", filterId)
+    .integer("filter_id", styleId)
     .blob("image", await toBlob(image))
     .build();
 
@@ -43,7 +42,8 @@ const filters = async (
 };
 
 export const filtersHandler =
-  (client: RequestClient) => async (image: ImageParam, filterId: AIFilters) =>
-    (await filters(client, image, filterId)) as Result<Image>;
+  (client: RequestClient) =>
+  async (image: ImageParam, config?: AIFitlersConfig) =>
+    (await filters(client, image, config)) as Result<Image>;
 
 export default filtersHandler;

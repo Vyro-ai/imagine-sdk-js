@@ -1,7 +1,7 @@
 /**
- * @enum {number} AIFilters - The filter ids for filter editing.
+ * @enum {number} Filters - The filter ids for filter editing.
  */
-export declare enum AIFilters {
+export declare enum Filters {
     PIXAR_DISNEY = 0,
     VAN_GOUH = 1,
     POP_ART = 2,
@@ -13,4 +13,4 @@ export declare enum AIFilters {
     "80s_ANIME" = 8,
     NEWSPAPER_RETRO = 9
 }
-export default AIFilters;
+export default Filters;

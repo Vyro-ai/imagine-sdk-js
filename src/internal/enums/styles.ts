@@ -76,3 +76,11 @@ export enum VariationStyle {
 export enum InpaintStyle {
   REALISM = 1,
 }
+
+/**
+ * @enum {number} InpaintStyle - The style ids for image inpaint.
+ */
+export enum AIFiltersStyle {
+  STYLE_1 = 1,
+  STYLE_2 = 2,
+}
