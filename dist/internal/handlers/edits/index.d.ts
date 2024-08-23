@@ -1,7 +1,7 @@
 import { Remix } from "src/internal/handlers/edits/remix";
 import { Image } from "src/internal/models/image";
 import { Result } from "src/internal/models/result";
-import { AIFitlersConfig, ImageParam, InpaintConfig } from "src/internal/types";
+import { AIFiltersConfig, ImageParam, InpaintConfig } from "src/internal/types";
 import { RequestClient } from "src/services";
 export interface Edits {
     /**
@@ -14,10 +14,10 @@ export interface Edits {
      * Applies AI filters on an image.x
      *
      * @param {ImageParam} image - The image to apply filter on.
-     * @param {AIFitlersConfig} [config] - Optional config for AI Filters {model : AIFitlersConfig}.
+     * @param {AIFiltersConfig} [config] - Optional config for AI Filters {model : AIFiltersConfig}.
      * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the AI Filter's application on the provided image.
      */
-    filters: (image: ImageParam, config?: AIFitlersConfig) => Promise<Result<Image>>;
+    filters: (image: ImageParam, config?: AIFiltersConfig) => Promise<Result<Image>>;
     /**
      * Inpaint an image based on a prompt and mask.
      *
