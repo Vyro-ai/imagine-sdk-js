@@ -1,18 +1,15 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable import/prefer-default-export */
-import { generationsHandler } from "./internal/handlers/generations";
-import { inpaintHandler } from "./internal/handlers/inpaint";
-import { remixHandler } from "./internal/handlers/remix";
-import { upscaleHandler } from "./internal/handlers/upscale";
-import { variationHandler } from "./internal/handlers/variations";
-import { Image } from "./internal/models/image";
-import { Result } from "./internal/models/result";
-import { RequestClient, instance } from "./internal/services/client";
-import { GenerationConfig } from "./internal/types/generations";
-import { ImageParam } from "./internal/types/image";
-import { InpaintConfig } from "./internal/types/inpaint";
-import { RemixConfig } from "./internal/types/remix";
-import { VariationConfig } from "./internal/types/variations";
+import {
+  Background,
+  backgroundHandler,
+} from "src/internal/handlers/background";
+import { Edits, editsHandler } from "src/internal/handlers/edits";
+import { Enhance, enhanceHandler } from "src/internal/handlers/enhance";
+import { Face, faceHandler } from "src/internal/handlers/face";
+import {
+  Generations,
+  generationsHandler,
+} from "src/internal/handlers/generations";
+import { instance, RequestClient } from "src/internal/services/client";
 
 const BASE_URL = "https://api.vyro.ai/";
 
@@ -23,68 +20,39 @@ const BASE_URL = "https://api.vyro.ai/";
  */
 interface Imagine {
   /**
-   * Generate an image based on a prompt.
+   * Returns methods that generate images.
    *
-   * @param {string} prompt - The prompt for generating the image.
-   * @param {GenerationConfig} [config] - Optional configuration for image generation. (model: GenerationConfig)
-   * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image generation.
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  generations: (
-    prompt: string,
-    config?: GenerationConfig
-  ) => Promise<Result<Image>>;
+  generations: Generations;
 
   /**
-   * Apply variations to an image based on a prompt.
+   * Returns methods to interact with the background of an image.
    *
-   * @param {string} prompt - The prompt for applying variations.
-   * @param {ImageParam} image - The image to which variations will be applied.
-   * @param {VariationConfig} [config] - Optional configuration for applying variations. (model: VariationConfig)
-   * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image variations.
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  variations: (
-    prompt: string,
-    image: ImageParam,
-    config?: VariationConfig
-  ) => Promise<Result<Image>>;
+  background: Background;
 
   /**
-   * Remix an image based on a prompt.
+   * Returns methods to enhance an image.
    *
-   * @param {string} prompt - The prompt for remixing the image.
-   * @param {ImageParam} image - The image to be remixed.
-   * @param {RemixConfig} [config] - Optional configuration for image remixing. (model: RemixConfig)
-   * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image remixing.
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  remix: (
-    prompt: string,
-    image: ImageParam,
-    config?: RemixConfig
-  ) => Promise<Result<Image>>;
+  enhance: Enhance;
 
   /**
-   * Upscale an image.
+   * Returns methods to edit images.
    *
-   * @param {ImageParam} image - The image to be upscaled.
-   * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image upscaling.
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  upscale: (image: ImageParam) => Promise<Result<Image>>;
+  edits: Edits;
 
   /**
-   * Inpaint an image based on a prompt and mask.
+   * Returns methods to edit images but preserve the face.
    *
-   * @param {string} prompt - The prompt for inpainting the image.
-   * @param {ImageParam} image - The image to be inpainted.
-   * @param {ImageParam} mask - The mask specifying the inpainting areas.
-   * @param {InpaintConfig} [config] - Optional configuration for image inpainting. (model: InpaintConfig)
-   * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image inpainting.
+   * @param {RequestClient} client - Client for making HTTP requests and fetching data
    */
-  inpaint: (
-    prompt: string,
-    image: ImageParam,
-    mask: ImageParam,
-    config?: InpaintConfig
-  ) => Promise<Result<Image>>;
+  face: Face;
 }
 
 /**
@@ -103,22 +71,15 @@ export const client = (
 
   return {
     generations: generationsHandler(c),
-    variations: variationHandler(c),
-    remix: remixHandler(c),
-    upscale: upscaleHandler(c),
-    inpaint: inpaintHandler(c),
+    background: backgroundHandler(c),
+    enhance: enhanceHandler(c),
+    edits: editsHandler(c),
+    face: faceHandler(c),
   };
 };
 
 export default client;
-export * from "./internal/enums/ratios";
-export * from "./internal/enums/statuses";
-export * from "./internal/enums/styles";
-export * from "./internal/enums/controls";
-export * from "./internal/types/generations";
-export * from "./internal/types/inpaint";
-export * from "./internal/types/remix";
-export * from "./internal/types/variations";
+export * from "./internal/enums";
+export * from "./internal/types";
 export { Err } from "./internal/models/error";
 export { RequestClient } from "./internal/services/client";
-export { ImageParam } from "./internal/types/image";

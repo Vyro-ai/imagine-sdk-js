@@ -1,4 +1,4 @@
-import { VariationStyle } from "../enums/styles";
+import { VariationStyle } from "src/internal/enums/styles";
 /**
  * Configuration options for applying variations to an image.
  *

@@ -1,4 +1,4 @@
-import { InpaintStyle } from "../enums/styles";
+import { InpaintStyle } from "src/internal/enums/styles";
 
 /**
  * Configuration options for inpainting an image.

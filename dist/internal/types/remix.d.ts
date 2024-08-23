@@ -1,4 +1,5 @@
-import { RemixStyle } from "../enums/styles";
+import { RemixControl } from "src/internal/enums/controls";
+import { RemixStyle } from "src/internal/enums/styles";
 /**
  * Configuration options for remixing an image.
  *
@@ -15,7 +16,7 @@ export declare type RemixConfig = {
     seed?: number;
     steps?: number;
     strength?: number;
-    control?: string;
+    control?: RemixControl;
     cfg?: number;
     negativePrompt?: string;
 };
