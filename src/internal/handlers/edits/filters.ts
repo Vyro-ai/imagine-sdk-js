@@ -1,3 +1,4 @@
+import { DEFAULT_FILTER_ID, DEFAULT_STYLE_ID } from "src/internal/constants";
 import { Status } from "src/internal/enums";
 import { Image, toImage } from "src/internal/models/image";
 import { Result, success, error } from "src/internal/models/result";
@@ -5,9 +6,6 @@ import { RequestClient } from "src/internal/services/client";
 import { FiltersConfig, ImageParam } from "src/internal/types";
 import { toBlob } from "src/internal/utils/blob";
 import { FormDataBuilder } from "src/internal/utils/form";
-
-const DEFAULT_FILTER_ID = 1;
-const DEFAULT_STYLE_ID = 1;
 
 const ids = (id: number) => {
   if (!id)
