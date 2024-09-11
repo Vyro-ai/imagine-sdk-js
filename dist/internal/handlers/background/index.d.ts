@@ -3,13 +3,13 @@ import { Result } from "src/internal/models/result";
 import { ImageParam } from "src/internal/types";
 import { RequestClient } from "src/services";
 export interface Background {
-  /**
-   * Remove background of an image.
-   *
-   * @param {ImageParam} image - The image whose background is to be removed.
-   * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image upscaling.
-   */
-  remover: (image: ImageParam) => Promise<Result<Image>>;
+    /**
+     * Remove background of an image.
+     *
+     * @param {ImageParam} image - The image whose background is to be removed.
+     * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image upscaling.
+     */
+    remover: (image: ImageParam) => Promise<Result<Image>>;
 }
 /**
  * Creates an instance of Background with the http client.
@@ -18,6 +18,4 @@ export interface Background {
  *
  * @returns {Background} An instance of the Imagine client with various manipulation functions.
  */
-export declare const backgroundHandler: (c: RequestClient) => {
-  remover: (image: ImageParam) => Promise<Result<Image>>;
-};
+export declare const backgroundHandler: (c: RequestClient) => Background;

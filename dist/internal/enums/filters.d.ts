@@ -9,7 +9,7 @@ export declare enum Filters {
     NEON_ME = 1005,
     SIMPLE_CARTOON = 1006,
     WESTERN_ANIME = 1007,
-    "80s_ANIME" = 1008,
+    EIGHTIES_ANIME = 1008,
     NEWSPAPER_RETRO = 1009,
     PIXAR_DISNEY = 2001
 }
