@@ -8,7 +8,7 @@ export interface Background {
   /**
    * Remove background of an image.
    *
-   * @param {ImageParam} image - The image whose backgruond is to be removed.
+   * @param {ImageParam} image - The image whose background is to be removed.
    * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image upscaling.
    */
   remover: (image: ImageParam) => Promise<Result<Image>>;
@@ -21,6 +21,6 @@ export interface Background {
  *
  * @returns {Background} An instance of the Imagine client with various manipulation functions.
  */
-export const backgroundHandler = (c: RequestClient) => ({
+export const backgroundHandler = (c: RequestClient): Background => ({
   remover: removerHandler(c),
 });

@@ -27,6 +27,6 @@ export interface Face {
  *
  * @returns {Face} An instance of the Imagine client with various manipulation functions.
  */
-export const faceHandler: (c: RequestClient) => Face = (c) => ({
+export const faceHandler = (c: RequestClient): Face => ({
   headshot: headshotHandler(c),
 });

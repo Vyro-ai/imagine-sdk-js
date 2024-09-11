@@ -27,6 +27,6 @@ export interface Remix {
  *
  * @returns {Remix} An instance of the Imagine client with various manipulation functions.
  */
-export const remixHandler: (c: RequestClient) => Remix = (c) => ({
+export const remixHandler = (c: RequestClient): Remix => ({
   remix: rHandler(c),
 });

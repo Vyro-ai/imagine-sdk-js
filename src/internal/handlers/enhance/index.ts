@@ -21,6 +21,6 @@ export interface Enhance {
  *
  * @returns {Enhance} An instance of the Imagine client with various manipulation functions.
  */
-export const enhanceHandler: (c: RequestClient) => Enhance = (c) => ({
+export const enhanceHandler = (c: RequestClient): Enhance => ({
   upscale: upscaleHandler(c),
 });

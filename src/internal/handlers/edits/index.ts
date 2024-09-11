@@ -50,7 +50,7 @@ export interface Edits {
  *
  * @returns {Edits} An instance of the Imagine client with various manipulation functions.
  */
-export const editsHandler: (c: RequestClient) => Edits = (c) => ({
+export const editsHandler = (c: RequestClient): Edits => ({
   remix: remixHandler(c),
   filters: filtersHandler(c),
   inpaint: inpaintHandler(c),

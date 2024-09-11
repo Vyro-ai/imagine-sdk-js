@@ -14,7 +14,7 @@ export interface Generations {
   /**
    * Generate background in an image.
    *
-   * @param {ImageParam} image - The image whose backgruond is to be generated.
+   * @param {ImageParam} image - The image whose background is to be generated.
    * @param {string} prompt - Guidance prompt for background generation.
    * @returns {Promise<Result<Image>>} A Promise that resolves with the result of the image upscaling.
    */
@@ -54,7 +54,7 @@ export interface Generations {
  *
  * @returns {Generations} An instance of the Imagine client with various manipulation functions.
  */
-export const generationsHandler: (c: RequestClient) => Generations = (c) => ({
+export const generationsHandler = (c: RequestClient): Generations => ({
   background: backgroundHandler(c),
   generations: genHandler(c),
   variations: variationHandler(c),
