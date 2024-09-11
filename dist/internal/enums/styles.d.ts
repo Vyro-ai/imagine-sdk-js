@@ -1,7 +1,7 @@
 /**
- * @enum {number} Style - The style ids for image generations.
+ * @enum {number} Generation - The style ids for image generations.
  */
-export declare enum GenerationStyle {
+export declare enum GenerationsStyle {
     ANIME = 21,
     PORTRAIT = 26,
     IMAGINE_V1 = 27,
@@ -27,6 +27,14 @@ export declare enum GenerationStyle {
     XX_MIX_9_REALISTIC = 117,
     THREE_D_RENDERING = 118,
     ABSOLUTE_REALITY_V1_6 = 119
+}
+/**
+ * @enum {number} Remix - The style ids for image remix.
+ */
+export declare enum RemixStyle {
+    ANIME = 21,
+    IMAGINE_V1 = 22,
+    REALISTIC = 29
 }
 /**
  * @enum {number} VariationStyle - The style ids for image variations.
@@ -57,14 +65,6 @@ export declare enum VariationStyle {
     XX_MIX_9_REALISTIC = 117,
     THREE_D_RENDERING = 118,
     ABSOLUTE_REALITY_V1_6 = 119
-}
-/**
- * @enum {number} RemixStyle - The style ids for image remix.
- */
-export declare enum RemixStyle {
-    ANIME = 21,
-    IMAGINE_V1 = 22,
-    REALISTIC = 29
 }
 /**
  * @enum {number} InpaintStyle - The style ids for image inpaint.
